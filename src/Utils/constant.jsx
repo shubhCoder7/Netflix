@@ -34,4 +34,4 @@ export const BG_URL =
 // export const OPENAI_KEY =
 //   "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";
 
-export const OPENAI_KEY = import.meta.env.VITE_OPENAI_KEY;
+
