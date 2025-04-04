@@ -7,8 +7,7 @@ export const API_OPTION = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer  eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMjgyODVmZWY0MWE0MmQxYWNhYThlNDY5ZTc3OWY5ZSIsIm5iZiI6MTczMzUzNzkwMS4zOTIsInN1YiI6IjY3NTNiMDZkMzQ5NGNjOWJmYmM2NTM2MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qBUjqUwK9Qo1o7paENpltPQBZcNH2FKw4Kdu2SN1KXU",
+    Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
   },
 };
 
@@ -31,7 +30,5 @@ export const BG_URL =
 //   { identifier: "japanese", name: "Japanese" },
 // ];
 
-// export const OPENAI_KEY =
-//   "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";
-
+// Using environment variable for API key
 export const OPENAI_KEY = import.meta.env.VITE_OPENAI_KEY;
