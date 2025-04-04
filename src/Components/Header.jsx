@@ -57,11 +57,11 @@ const Header = () => {
   //   dispatch(changeLanguage(e.target.value));
   // };
   return (
-    <div className="absolute w-screen p-2 bg-gradient-to-b from-black z-10 flex justify-between">
-      <img className="w-44" alt="logo" src={LOGO} />
+    <div className="absolute w-full px-2 md:p-4 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
+      <img className="w-24 md:w-44 mx-auto md:mx-0" alt="logo" src={LOGO} />
 
       {user && (
-        <div className="flex my-2 mx-3 items-center">
+        <div className="flex my-2 mx-auto md:mx-3 items-center">
           {/* {showGptSearch && (
             <select
               className="p-2 m-2  bg-gray-900 text-white"
@@ -81,12 +81,12 @@ const Header = () => {
             {showGptSearch ? "Home " : " Gpt Search"}
           </button> */}
 
-          <img className="w-12  h-12" src={AVATAR_LOGO} />
+          <img className="w-8 h-8 md:w-12 md:h-12" src={AVATAR_LOGO} />
           <button
-            className="text-white font-bold "
+            className="text-white font-bold ml-2 text-sm md:text-base"
             onClick={handleClickSignOut}
           >
-            (sign out)
+            Sign Out
           </button>
         </div>
       )}

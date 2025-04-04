@@ -13,7 +13,7 @@ const Browse = () => {
   useUpcomingMovies();
 
   return (
-    <div>
+    <div className="relative w-full overflow-x-hidden">
       <Header />
       <MainContainer />
       <SecondaryContainer />

@@ -88,14 +88,18 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="absolute  ">
-        <img src={BG_URL} alt="bg-logo" />
+      <div className="absolute w-full">
+        <img
+          className="h-screen w-full object-cover"
+          src={BG_URL}
+          alt="bg-logo"
+        />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-3/12  mx-auto my-32 right-0 left-0 absolute p-16 bg-black text-white font-semibold rounded-lg bg-opacity-80 "
+        className="w-11/12 sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-3/12 mx-auto my-16 md:my-32 right-0 left-0 absolute p-4 md:p-16 bg-black text-white font-semibold rounded-lg bg-opacity-80"
       >
-        <h1 className="text-3xl p-4">
+        <h1 className="text-2xl md:text-3xl p-2 md:p-4">
           {!isSignInForm ? "Sign Up" : "Sign In"}
         </h1>
         {!isSignInForm && (
@@ -103,20 +107,20 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Enter Your Name"
-            className="p-3 w-full text-center my-2  bg-gray-700 rounded-md bg-opacity-80 placeholder:text-white "
+            className="p-2 md:p-3 w-full text-center my-2 bg-gray-700 rounded-md bg-opacity-80 placeholder:text-white"
           />
         )}
         <input
           type="text"
           ref={email}
-          placeholder="Enter your Email "
-          className="p-3 w-full text-center my-2 bg-gray-700 rounded-md bg-opacity-80 placeholder:text-white "
+          placeholder="Enter your Email"
+          className="p-2 md:p-3 w-full text-center my-2 bg-gray-700 rounded-md bg-opacity-80 placeholder:text-white"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-2 w-full text-center my-2 bg-gray-700 rounded-md bg-opacity-80  placeholder:text-white"
+          className="p-2 w-full text-center my-2 bg-gray-700 rounded-md bg-opacity-80 placeholder:text-white"
         />
         <button
           className="p-2 w-full text-center my-2 bg-red-600 rounded-md cursor-pointer hover:bg-red-700 placeholder:text-white"
@@ -128,7 +132,7 @@ const Login = () => {
         <div className="text-center my-2">
           <h1>OR</h1>
           <p className="p-2 my-2 cursor-pointer" onClick={toggleSignUp}>
-            {!setIsSignUpForm
+            {!isSignInForm
               ? "Already a Member? Sign in now."
               : "New to Netflix? sign up now."}
           </p>
