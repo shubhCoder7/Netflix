@@ -13,9 +13,11 @@ const Browse = () => {
   useUpcomingMovies();
 
   return (
-    <div className="relative w-full overflow-x-hidden">
+    <div className="relative bg-black text-white min-h-screen">
       <Header />
-      <MainContainer />
+      <div className="pt-0">
+        <MainContainer />
+      </div>
       <SecondaryContainer />
     </div>
   );

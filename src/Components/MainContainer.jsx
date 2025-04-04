@@ -4,15 +4,18 @@ import VideoBackground from "./VideoBackground";
 
 const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
-  if (!movies) return;
-  const mainMovies = movies[0];
 
-  const { original_title, overview, id } = mainMovies;
+  if (!movies || movies.length === 0) {
+    return <div className="w-full aspect-video bg-black animate-pulse"></div>;
+  }
+
+  const mainMovie = movies[0];
+  const { original_title, overview, id } = mainMovie;
 
   return (
-    <div>
-      <VideoTitle title={original_title} overview={overview} />
+    <div className="relative w-full aspect-video">
       <VideoBackground movieId={id} />
+      <VideoTitle title={original_title} overview={overview} />
     </div>
   );
 };

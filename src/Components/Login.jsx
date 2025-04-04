@@ -49,11 +49,9 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              // ...
             })
-            .catch((error) => {
+            .catch(() => {
               // An error occurred
-              // ...
             });
         })
         .catch((error) => {
@@ -68,11 +66,8 @@ const Login = () => {
         email.current.value,
         password.current.value
       )
-        .then((userCredential) => {
+        .then(() => {
           // Signed in
-          const user = userCredential.user;
-
-          // ...
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -88,18 +83,18 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="absolute w-full">
+      <div className="absolute w-full h-screen">
         <img
-          className="h-screen w-full object-cover"
+          className="h-full w-full object-cover"
           src={BG_URL}
           alt="bg-logo"
         />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-11/12 sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-3/12 mx-auto my-16 md:my-32 right-0 left-0 absolute p-4 md:p-16 bg-black text-white font-semibold rounded-lg bg-opacity-80"
+        className="w-[90%] sm:w-[450px] md:w-[400px] mx-auto my-16 md:my-32 right-0 left-0 absolute p-8 md:p-12 bg-black text-white font-semibold rounded-lg bg-opacity-80"
       >
-        <h1 className="text-2xl md:text-3xl p-2 md:p-4">
+        <h1 className="text-3xl font-bold mb-6 text-center sm:text-left">
           {!isSignInForm ? "Sign Up" : "Sign In"}
         </h1>
         {!isSignInForm && (
@@ -107,34 +102,36 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Enter Your Name"
-            className="p-2 md:p-3 w-full text-center my-2 bg-gray-700 rounded-md bg-opacity-80 placeholder:text-white"
+            className="p-3 w-full my-4 bg-gray-700 rounded-md bg-opacity-80 placeholder:text-gray-300"
           />
         )}
         <input
           type="text"
           ref={email}
           placeholder="Enter your Email"
-          className="p-2 md:p-3 w-full text-center my-2 bg-gray-700 rounded-md bg-opacity-80 placeholder:text-white"
+          className="p-3 w-full my-4 bg-gray-700 rounded-md bg-opacity-80 placeholder:text-gray-300"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-2 w-full text-center my-2 bg-gray-700 rounded-md bg-opacity-80 placeholder:text-white"
+          className="p-3 w-full my-4 bg-gray-700 rounded-md bg-opacity-80 placeholder:text-gray-300"
         />
         <button
-          className="p-2 w-full text-center my-2 bg-red-600 rounded-md cursor-pointer hover:bg-red-700 placeholder:text-white"
+          className="p-3 w-full my-6 bg-red-600 rounded-md cursor-pointer hover:bg-red-700 transition-colors font-bold"
           onClick={handleClicked}
         >
           {!isSignInForm ? "Sign Up" : "Sign In"}
         </button>
-        <p className="my-1 text-red-500 font-semibold">{checkError}</p>
-        <div className="text-center my-2">
-          <h1>OR</h1>
-          <p className="p-2 my-2 cursor-pointer" onClick={toggleSignUp}>
+        {checkError && (
+          <p className="my-2 text-red-500 font-semibold">{checkError}</p>
+        )}
+        <div className="text-center mt-6">
+          <p className="text-gray-400 mb-2">OR</p>
+          <p className="cursor-pointer hover:underline" onClick={toggleSignUp}>
             {!isSignInForm
               ? "Already a Member? Sign in now."
-              : "New to Netflix? sign up now."}
+              : "New to Netflix? Sign up now."}
           </p>
         </div>
       </form>
